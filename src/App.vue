@@ -1,13 +1,16 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <div id="app"><home/>    </div>
 </template>
 
+<script>
+// @ is an alias to /src
+import Home from "@/views/Home.vue";
+
+export default {
+  components: { Home },
+  name: "App",
+};
+</script>
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
