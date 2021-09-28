@@ -1,21 +1,26 @@
 <template>
-  <v-card class="mr-3 market ">
-    <v-card-title>Market: {{ marketName }}</v-card-title>
-    <v-card-text>
-      <v-row ref="marketB d-flex">
-        <v-col cols="12" >
-          <transaction-prices></transaction-prices>
+  <v-container fluid fill-height>
+    <v-row class="halfchik yellow d-flex flex-row">
+      <v-col cols="12" style="height:30%;overflow-y:scroll">
+        <transaction-prices></transaction-prices>
+      </v-col>
+      <v-col cols="12" style="height:70%;overflow-y:scroll"  class='d-flex'>
+        
+        <v-col cols="4"  >
+          <make-bid></make-bid>
         </v-col>
-        <v-col cols="12">
-          <v-row>
-            <v-col cols="3"> BIDS TO SELL</v-col>
-            <v-col cols="3"> BIDS TO BUY</v-col>
-            <v-col cols="3">ORDER SUBMISSION</v-col>
-          </v-row>
+        <v-col cols="4">
+          <sell-bid-list></sell-bid-list>
         </v-col>
-      </v-row>
-    </v-card-text>
-  </v-card>
+        <v-col cols="4">
+          <buy-bid-list></buy-bid-list>
+        </v-col>
+        
+      </v-col>
+    </v-row>
+
+   
+  </v-container>
 </template>
 
 <script>
@@ -23,6 +28,7 @@ import TransactionPrices from "@/components/TransactionPrices.vue";
 import BuyBidList from "@/components/BuyBidList.vue";
 import SellBidList from "@/components/SellBidList.vue";
 import MakeBid from "@/components/MakeBid.vue";
+import _ from "lodash";
 
 export default {
   props: ["marketName"],
@@ -34,16 +40,18 @@ export default {
   },
   name: "Market",
   data() {
-    return {};
+    return { items: _.range(1, 100) };
   },
 };
 </script>
 <style scoped>
-.market {
- 
-  overflow-y: scroll;
+.halfchik {
+  overflow-y: scroll !important;
+  height: calc(100vh - 50px) !important;
 }
-html {
-  /* overflow-y: auto; */
+.topchik {
+  height: 30%;
+  background: red;
+  overflow-y: scroll !important;
 }
 </style>

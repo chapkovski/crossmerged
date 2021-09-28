@@ -1,11 +1,12 @@
 <template>
  <v-card>
-   <v-card-title>Transaction prices:</v-card-title>
+   <v-card-subtitle>Transaction prices</v-card-subtitle>
    <v-card-text>
      
      <v-data-table
+     dense
      fixed-header
-     height="100"
+     hide-default-footer
     :headers="headers"
     :items="desserts"
     :items-per-page="5"

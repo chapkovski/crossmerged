@@ -44,10 +44,8 @@ export default {
     };
   },
   mounted() {
-    console.debug("PIZDA");
     this.$nextTick(() => {
-      console.debug("JOPA", this.$refs.priceGraph.chart);
-      this.$refs.priceGraph.chart.setSize(null, 500)
+      this.$refs.priceGraph.chart.setSize(null, window.innerHeight - 150);
       // this.$refs.priceGraph.chart.reflow();
     });
   },
