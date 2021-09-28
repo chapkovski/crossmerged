@@ -3,7 +3,7 @@
     <v-card-title>Market: {{ marketName }}</v-card-title>
     <v-card-text>
       <v-row ref="marketB d-flex">
-        <v-col cols="12" max-height='50'>
+        <v-col cols="12" >
           <transaction-prices></transaction-prices>
         </v-col>
         <v-col cols="12">
@@ -40,7 +40,7 @@ export default {
 </script>
 <style scoped>
 .market {
-  max-height: 50vh;
+ 
   overflow-y: scroll;
 }
 html {

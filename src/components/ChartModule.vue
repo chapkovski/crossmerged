@@ -1,13 +1,13 @@
 <template>
-  <v-container fluid style="height: 100vh;">
-    <v-layout fill-height style="width: 1000px;">
+  <v-container fluid style="height: 50vh;">
+    <v-col cols="12">
       <highcharts
         ref="priceGraph"
         :options="chartOptions"
         :constructorType="'stockChart'"
         class="hc"
       ></highcharts>
-    </v-layout>
+    </v-col>
   </v-container>
 </template>
 
@@ -47,8 +47,8 @@ export default {
     console.debug("PIZDA");
     this.$nextTick(() => {
       console.debug("JOPA", this.$refs.priceGraph.chart);
-      this.$refs.priceGraph.chart.setSize(1000, 500)
-      this.$refs.priceGraph.chart.reflow();
+      this.$refs.priceGraph.chart.setSize(null, 500)
+      // this.$refs.priceGraph.chart.reflow();
     });
   },
 };
