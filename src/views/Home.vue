@@ -1,7 +1,6 @@
 <template>
   <v-app id="inspire">
- 
-
+    <v-app-bar app>JOPA </v-app-bar>
     <v-main>
       <v-container class="py-8 px-6" fluid>
         <v-row>
@@ -15,162 +14,82 @@
     align-items: stretch;
 "
           >
-            <v-card :style="`{ overflow: auto; height: 400px; }`">
-              <v-card-title :style="`{ position: sticky; top: 0; z-index: 1; }`"
-                >Market A</v-card-title
-              >
+            <v-card :style="`{ overflow: auto; height: 450px; }`">
+                <v-toolbar>Market A: currently selected selling bid: {{selectedSellingBid}}</v-toolbar>
               
-                <v-row>
-                  <v-col class="nopm" cols="4">
-                    <v-card height="350px">
-                      <v-app-bar card>
-                         Selling bids
-                      </v-app-bar>
-                      <v-card-text>
-                        <ul id="sellcontainer" ref="sellcontainer">
-                          <li v-for="i in innerList" :key="i">
-                            {{ i }}
-                          </li>
-                        </ul>
-                      </v-card-text>
 
-                      <v-footer class="pa-2">
-                        <v-btn color="blue">Buy</v-btn>
-                      </v-footer>
-                    </v-card>
-                  </v-col>
-                  <v-col cols="4" class="nopm">
-                    <v-card height="350px">
-                      <v-toolbar card>
-                        <v-toolbar-title class="small"
-                          >Buying bids</v-toolbar-title
+              <v-row>
+                <v-col class="nopm" cols="4">
+                  <v-card height="350px">
+                    <v-app-bar>
+                      Selling bids
+                    </v-app-bar>
+                    <v-card-text>
+                      <v-list>
+                        <v-list-item-group
+                          v-model="selectedSellingBid"
+                          active-class="border"
+                          color="indigo"
+                          
                         >
-                      </v-toolbar>
-                      <v-card-text>
-                        <v-list>
-                          <template v-for="i in 40">
-                            <v-list-tile>
-                              <v-list-tile-content>
-                                <div>{{ i }}</div>
-                              </v-list-tile-content>
-                            </v-list-tile>
-                          </template>
-                        </v-list>
-                      </v-card-text>
+                          <v-list-item v-for="(item, i) in innerList" :key="i"  :id="`li_${item}`" dense>
+                            <v-list-item-content>
+                              <v-list-item-title
+                                v-text="item"
+                              ></v-list-item-title>
+                            </v-list-item-content>
+                          </v-list-item>
+                        </v-list-item-group>
+                      </v-list>
 
-                      <v-footer class="pa-2">
-                        <v-btn color="green">Sell</v-btn>
-                      </v-footer>
-                    </v-card>
-                  </v-col>
-                  <v-col cols="4" class="nopm">
-                    <v-card height="350px">
-                      <v-toolbar card>
-                        <v-toolbar-title class="small"
-                          >Transaction prices</v-toolbar-title
-                        >
-                      </v-toolbar>
-                      <v-card-text>
-                        <v-list>
-                          <template v-for="i in 40">
-                            <v-list-tile>
-                              <v-list-tile-content>
-                                <div>{{ i }}</div>
-                              </v-list-tile-content>
-                            </v-list-tile>
-                          </template>
-                        </v-list>
-                      </v-card-text>
+                      
+                    </v-card-text>
 
-                      <v-footer class="pa-2">
-                        <v-btn color="red">Submit order</v-btn>
-                      </v-footer>
-                    </v-card>
-                  </v-col>
-                </v-row>
-             
+                    <v-footer class="pa-2">
+                      <v-btn color="blue" :disabled='selectedSellingBid===null'>Buy</v-btn>
+                    </v-footer>
+                  </v-card>
+                </v-col>
+              </v-row>
             </v-card>
             <v-divider></v-divider>
-            <v-card :style="`{ overflow: auto; height: 400px; }`">
-              <v-card-title :style="`{ position: sticky; top: 0; z-index: 1; }`"
-                >Market B</v-card-title
-              >
+             <v-card :style="`{ overflow: auto; height: 450px; }`">
              
-                <v-row>
-                  <v-col class="nopm" cols="4">
-                    <v-card height="350px">
-                      <v-toolbar card>
-                        <v-toolbar-title class="small"
-                          >Selling bids</v-toolbar-title
-                        >
-                      </v-toolbar>
-                      <v-card-text>
-                        <v-list>
-                          <template v-for="i in 40">
-                            <v-list-tile>
-                              <v-list-tile-content>
-                                <div>{{ i }}</div>
-                              </v-list-tile-content>
-                            </v-list-tile>
-                          </template>
-                        </v-list>
-                      </v-card-text>
+                <v-toolbar>Market B: currently selected selling bid: {{selectedSellingBid}}</v-toolbar>
 
-                      <v-footer class="pa-2">
-                        <v-btn color="blue">Buy</v-btn>
-                      </v-footer>
-                    </v-card>
-                  </v-col>
-                  <v-col cols="4" class="nopm">
-                    <v-card height="350px">
-                      <v-toolbar card>
-                        <v-toolbar-title class="small"
-                          >Buying bids</v-toolbar-title
+              <v-row>
+                <v-col class="nopm" cols="4">
+                  <v-card height="350px">
+                    <v-app-bar>
+                      Selling bids
+                    </v-app-bar>
+                    <v-card-text>
+                      <v-list>
+                        <v-list-item-group
+                          v-model="selectedSellingBid"
+                          active-class="border"
+                          color="indigo"
+                          
                         >
-                      </v-toolbar>
-                      <v-card-text>
-                        <v-list>
-                          <template v-for="i in 40">
-                            <v-list-tile>
-                              <v-list-tile-content>
-                                <div>{{ i }}</div>
-                              </v-list-tile-content>
-                            </v-list-tile>
-                          </template>
-                        </v-list>
-                      </v-card-text>
+                          <v-list-item v-for="(item, i) in innerList" :key="i"  :id="`li_${item}`" dense>
+                            <v-list-item-content>
+                              <v-list-item-title
+                                v-text="item"
+                              ></v-list-item-title>
+                            </v-list-item-content>
+                          </v-list-item>
+                        </v-list-item-group>
+                      </v-list>
 
-                      <v-footer class="pa-2">
-                        <v-btn color="green">Sell</v-btn>
-                      </v-footer>
-                    </v-card>
-                  </v-col>
-                  <v-col cols="4" class="nopm">
-                    <v-card height="350px">
-                      <v-toolbar card>
-                        <v-toolbar-title class="small"
-                          >Transaction prices</v-toolbar-title
-                        >
-                      </v-toolbar>
-                      <v-card-text>
-                        <v-list>
-                          <template v-for="i in 40">
-                            <v-list-tile>
-                              <v-list-tile-content>
-                                <div>{{ i }}</div>
-                              </v-list-tile-content>
-                            </v-list-tile>
-                          </template>
-                        </v-list>
-                      </v-card-text>
+                      
+                    </v-card-text>
 
-                      <v-footer class="pa-2">
-                        <v-btn color="red">Submit order</v-btn>
-                      </v-footer>
-                    </v-card>
-                  </v-col>
-                </v-row>
-           
+                    <v-footer class="pa-2">
+                      <v-btn color="blue" :disabled='selectedSellingBid===null'>Buy</v-btn>
+                    </v-footer>
+                  </v-card>
+                </v-col>
+              </v-row>
             </v-card>
           </v-col>
           <v-col>
@@ -188,71 +107,35 @@
 import _ from "lodash";
 export default {
   data: () => ({
+    selectedSellingBid: null,
     cards: ["Today", "Yesterday"],
-    innerList: _.range(0, 10),
-    desserts: [
-      {
-        name: "Frozen Yogurt",
-        calories: 159,
-      },
-      {
-        name: "Ice cream sandwich",
-        calories: 237,
-      },
-      {
-        name: "Eclair",
-        calories: 262,
-      },
-      {
-        name: "Cupcake",
-        calories: 305,
-      },
-      {
-        name: "Gingerbread",
-        calories: 356,
-      },
-      {
-        name: "Jelly bean",
-        calories: 375,
-      },
-      {
-        name: "Lollipop",
-        calories: 392,
-      },
-      {
-        name: "Honeycomb",
-        calories: 408,
-      },
-      {
-        name: "Donut",
-        calories: 452,
-      },
-      {
-        name: "KitKat",
-        calories: 518,
-      },
-    ],
+    innerList: _.range(1, 10),
+
     drawer: null,
-    links: [
-      ["mdi-inbox-arrow-down", "Inbox"],
-      ["mdi-send", "Send"],
-      ["mdi-delete", "Trash"],
-      ["mdi-alert-octagon", "Spam"],
-    ],
   }),
   watch: {
     innerList: function() {
+      const newone = _.last(this.innerList);
+      console.debug("NEWONE!!!", newone);
       this.$nextTick(function() {
-        var container = this.$refs.sellcontainer;
-        console.debug("jojpjpizda", container);
-        container.scrollTop = container.scrollHeight + 120;
+        const el = document.getElementById(`li_${newone}`);
+
+        el.scrollIntoView({ behavior: "smooth" });
       });
     },
   },
   mounted() {
     this.stockInterval = setInterval(() => {
-      this.innerList.push(_.random(0, 10000));
-    }, 1000);
+      const r = _.random(0, 10000);
+      this.innerList.push(r);
+      const el = this.$refs[`li_${r}`];
+
+      if (el) {
+        console.log("are we???");
+        // Use el.scrollIntoView() to instantly scroll to the element
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 3000);
   },
   methods: {
     scrollToEnd: function() {
@@ -279,6 +162,9 @@ html {
 }
 .small {
   font-size: 1rem;
+}
+.border {
+  border: 2px dashed orange;
 }
 /* .nopm{ padding: 0px;} */
 </style>
