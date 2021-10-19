@@ -2,7 +2,7 @@
   <v-col class="nopm" cols="4">
     <v-card height="350px">
       <v-app-bar class="flex-grow-0" dense>
-        Byuing bids
+        Buying bids
       </v-app-bar>
       <v-card-text>
         <v-list>
@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import _ from 'lodash'
+import _ from "lodash";
 export default {
   components: {},
   name: "BuyBidList",
