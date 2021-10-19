@@ -1,6 +1,20 @@
 <template>
   <v-app id="inspire">
-    <v-app-bar app>JOPA </v-app-bar>
+    <v-app-bar app>
+      <v-sheet outlined>
+        <v-list-item>
+          <v-list-item-icon>
+            <v-icon v-text="`mdi-bank`"></v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title v-text="`Current account:`"></v-list-item-title>
+          </v-list-item-content>
+          <v-list-item-action>
+            <v-btn disabled>$123</v-btn>
+          </v-list-item-action>
+        </v-list-item>
+      </v-sheet>
+    </v-app-bar>
     <v-main>
       <v-container class="py-8 px-6" fluid>
         <v-row>
@@ -14,15 +28,13 @@
     align-items: stretch;
 "
           >
-          <market name='A'/>  
+            <market name="A" />
             <v-divider></v-divider>
-            <market name='B' />  
+            <market name="B" />
           </v-col>
           <v-col>
-            <v-row>
-              CHART HERE
-            </v-row></v-col
-          >
+            <v-row> <chart-module></chart-module> </v-row
+          ></v-col>
         </v-row>
       </v-container>
     </v-main>
@@ -32,10 +44,10 @@
 <script>
 import _ from "lodash";
 import Market from "@/components/MarketWrapper";
+import ChartModule from "@/components/ChartModule.vue";
 export default {
-  components:{Market},
+  components: { Market, ChartModule },
   data: () => ({
-    selectedSellingBid: null,
     cards: ["Today", "Yesterday"],
     innerList: _.range(1, 10),
 

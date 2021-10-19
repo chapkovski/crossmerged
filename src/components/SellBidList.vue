@@ -35,12 +35,16 @@
 </template>
 
 <script>
+import _ from 'lodash'
 export default {
   components: {},
   name: "SellBidList",
 
   data() {
-    return {};
+    return {
+      selectedSellingBid:null,
+      innerList:_.map(_.range(10), (i) => _.random(50, 120)),
+    };
   },
 };
 </script>

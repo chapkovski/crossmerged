@@ -2,7 +2,11 @@
   <v-card :style="`{ overflow: auto; height: 450px; }`">
     <v-toolbar
       >Market {{ name }}: currently selected selling bid:
-      {{ selectedSellingBid }}</v-toolbar
+      {{ selectedSellingBid }}  <v-spacer></v-spacer>
+        <v-btn
+  elevation="2"
+  fab
+></v-btn>  </v-toolbar
     >
 
     <v-row>
@@ -30,7 +34,7 @@ export default {
   },
   name: "Market",
   data() {
-    return { items: _.range(1, 100) };
+    return {selectedSellingBid:null, items: _.range(1, 100) };
   },
 };
 </script>
