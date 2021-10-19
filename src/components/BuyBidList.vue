@@ -1,6 +1,6 @@
 <template>
-  <v-col class="nopm" cols="4">
-    <v-card height="350px">
+  <v-col class="v50 nopm" cols="4">
+    <v-card class="v100">
       <v-app-bar class="flex-grow-0" dense>
         Buying bids
       </v-app-bar>
@@ -46,3 +46,12 @@ export default {
   },
 };
 </script>
+<style scoped>
+.v50 {
+  height: calc(50vh - 100px);
+  min-height: 100%;
+}
+.v100 {
+  height: 100%;
+}
+</style>

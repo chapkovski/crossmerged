@@ -28,9 +28,9 @@
     align-items: stretch;
 "
           >
-            <market name="A" />
+            <market name="A" :stocksData="{ q: 1, value: 22.1 }" />
             <v-divider></v-divider>
-            <market name="B" />
+            <market name="B" :stocksData="{ q: 3, value: 12.9 }" />
           </v-col>
           <v-col>
             <v-row> <chart-module></chart-module> </v-row

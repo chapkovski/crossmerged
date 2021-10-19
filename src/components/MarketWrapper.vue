@@ -1,18 +1,30 @@
 <template>
   <v-card :style="`{ overflow: auto; height: 450px; }`">
-    <v-toolbar
-      >Market {{ name }}: currently selected selling bid:
-      {{ selectedSellingBid }}  <v-spacer></v-spacer>
-        <v-btn
-  elevation="2"
-  fab
-></v-btn>  </v-toolbar
-    >
+    <v-toolbar height="80"
+      >Market {{ name }}.
+      <v-sheet class="mx-2" outlined>
+        <v-list-item class="d-flex">
+          <v-list-item-icon>
+            <v-icon v-text="`mdi-cash-fast`"></v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title
+              v-text="`You currently own:`"
+            ></v-list-item-title>
+          </v-list-item-content>
+
+          <v-btn class="mx-1">{{ stocksData.q }}</v-btn> stocks for total
+
+          <v-btn class="mx-1">${{ stocksData.value }}</v-btn>
+        </v-list-item>
+      </v-sheet>
+      <v-spacer></v-spacer>
+    </v-toolbar>
 
     <v-row>
-  <sell-bid-list></sell-bid-list>
-  <buy-bid-list></buy-bid-list>
-  <transaction-prices></transaction-prices>
+      <sell-bid-list></sell-bid-list>
+      <buy-bid-list></buy-bid-list>
+      <transaction-prices :marketName="name"></transaction-prices>
     </v-row>
   </v-card>
 </template>
@@ -25,7 +37,7 @@ import MakeBid from "@/components/MakeBid.vue";
 import _ from "lodash";
 
 export default {
-  props: ["name"],
+  props: ["name", "stocksData"],
   components: {
     TransactionPrices,
     BuyBidList,
@@ -34,13 +46,11 @@ export default {
   },
   name: "Market",
   data() {
-    return {selectedSellingBid:null, items: _.range(1, 100) };
+    return { selectedSellingBid: null, items: _.range(1, 100) };
   },
 };
 </script>
-<style >
- 
-
+<style>
 html {
   overflow: hidden !important;
 }
