@@ -1,55 +1,37 @@
 <template>
-   <v-card class="d-flex flex-column" height="100%">
-    <v-card-subtitle>Making bid:</v-card-subtitle>
-    <v-card-text class="makebid">
-      <div>A</div>
-      <div>A</div>
-      <div>A</div>
-      <div>A</div>
-      <div>A</div>
-      <div>A</div>
-      <div>A</div>
-      <div>A</div>
-      <div>A</div>
-      <div>A</div>
-      <div>A</div>
-      <div>A</div>
-      <div>A</div>
-      <div>A</div>
-      <div>A</div>
-      <div>A</div>
-      <div>A</div>
-      <div>A</div>
-      <div>A</div>
-      <div>A</div>
-      <div>A</div>
-      <div>A</div>
-      <div>A</div>
-      <div>A</div>
-      <div>A</div>
-      <div>A</div>
-      <div>A</div>
-      <div>A</div>
-      <div>A</div>
-      <div>A</div>
-      <div>A</div>
-      <div>A</div>
-    </v-card-text>
-    <v-card-actions>
-      <v-btn-toggle
-        class="d-flex justify-space-between w-100"
-        width="100%"
-        style="width:100%"
-      >
-        <v-btn color="red lighten-2" @click="reserve">
-          Buy Order
-        </v-btn>
-        <v-btn color="green lighten-2" @click="reserve">
-          Sell order
-        </v-btn>
-      </v-btn-toggle>
-    </v-card-actions>
-  </v-card>
+       <v-col class="nopm" cols="4">
+        <v-card height="350px">
+          <v-app-bar class="flex-grow-0" dense>
+            Selling bids
+          </v-app-bar>
+          <v-card-text>
+            <v-list>
+              <v-list-item-group
+                v-model="selectedSellingBid"
+                active-class="border"
+                color="indigo"
+              >
+                <v-list-item
+                  v-for="(item, i) in innerList"
+                  :key="i"
+                  :id="`li_${item}`"
+                  dense
+                >
+                  <v-list-item-content>
+                    <v-list-item-title v-text="item"></v-list-item-title>
+                  </v-list-item-content>
+                </v-list-item>
+              </v-list-item-group>
+            </v-list>
+          </v-card-text>
+
+          <v-footer class="pa-2">
+            <v-btn color="blue" :disabled="selectedSellingBid === null"
+              >Buy</v-btn
+            >
+          </v-footer>
+        </v-card>
+      </v-col>
 </template>
 
 <script>
@@ -62,11 +44,4 @@ export default {
   },
 };
 </script>
-<style scoped>
-.makebid {
-  background: blue;
-  color: white;
-  height: 100%;
-  overflow: scroll;
-}
-</style>
+ 

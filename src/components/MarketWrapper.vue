@@ -1,26 +1,16 @@
 <template>
-  <v-container fluid fill-height>
-    <v-row class="halfchik yellow d-flex flex-row">
-      <v-col cols="12" style="height:30%;overflow-y:scroll">
-        <transaction-prices></transaction-prices>
-      </v-col>
-      <v-col cols="12" style="height:70%;overflow-y:scroll"  class='d-flex'>
-        
-        <v-col cols="4"  >
-          <make-bid></make-bid>
-        </v-col>
-        <v-col cols="4">
-          <sell-bid-list></sell-bid-list>
-        </v-col>
-        <v-col cols="4">
-          <buy-bid-list></buy-bid-list>
-        </v-col>
-        
-      </v-col>
-    </v-row>
+  <v-card :style="`{ overflow: auto; height: 450px; }`">
+    <v-toolbar
+      >Market {{ name }}: currently selected selling bid:
+      {{ selectedSellingBid }}</v-toolbar
+    >
 
-   
-  </v-container>
+    <v-row>
+  <sell-bid-list></sell-bid-list>
+  <buy-bid-list></buy-bid-list>
+  <transaction-prices></transaction-prices>
+    </v-row>
+  </v-card>
 </template>
 
 <script>
@@ -31,7 +21,7 @@ import MakeBid from "@/components/MakeBid.vue";
 import _ from "lodash";
 
 export default {
-  props: ["marketName"],
+  props: ["name"],
   components: {
     TransactionPrices,
     BuyBidList,
@@ -44,14 +34,27 @@ export default {
   },
 };
 </script>
-<style scoped>
-.halfchik {
-  overflow-y: scroll !important;
-  height: calc(100vh - 50px) !important;
+<style >
+ 
+
+html {
+  overflow: hidden !important;
 }
-.topchik {
-  height: 30%;
-  background: red;
-  overflow-y: scroll !important;
+
+.v-card {
+  display: flex !important;
+  flex-direction: column;
 }
+
+.v-card__text {
+  flex-grow: 1;
+  overflow: auto;
+}
+.small {
+  font-size: 1rem;
+}
+.border {
+  border: 2px dashed orange;
+}
+/* .nopm{ padding: 0px;} */
 </style>
