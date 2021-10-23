@@ -14,28 +14,47 @@
           </v-list-item-action>
         </v-list-item>
       </v-sheet>
+       <v-sheet outlined style='background:green'>
+        <v-list-item color="red">
+          <v-list-item-icon>
+            <v-icon v-text="`mdi-bank`"></v-icon>
+          </v-list-item-icon>
+        <v-list-item-content style="color:white;font-weight:bold">
+            <v-list-item-title
+              
+              v-text="`Current price A:`"
+            ></v-list-item-title>
+          </v-list-item-content>
+          <v-list-item-action>
+            <v-btn>$12</v-btn>
+          </v-list-item-action>
+        </v-list-item>
+      </v-sheet>
+      <v-sheet outlined style='background:red'>
+        <v-list-item color="red">
+          <v-list-item-icon>
+            <v-icon v-text="`mdi-bank`"></v-icon>
+          </v-list-item-icon>
+          <v-list-item-content style="color:white;font-weight:bold">
+            <v-list-item-title v-text="`Current price B:`"></v-list-item-title>
+          </v-list-item-content>
+          <v-list-item-action>
+            <v-btn>$12</v-btn>
+          </v-list-item-action>
+        </v-list-item>
+      </v-sheet>
       <v-spacer></v-spacer>
-      <v-btn>Transaction history</v-btn>
+     <transaction-prices></transaction-prices>
     </v-app-bar>
     <v-main>
       <v-row fill-height class="d-flex align-stretch" style="height:100%">
-        <v-col
-       
-          fill-height
-          class="align-self-stretch"
-          style="height:100%"
-        >
+        <v-col>
           <market name="A" :stocksData="{ q: 1, value: 22.1 }" />
         </v-col>
-           <v-col
-       
-          fill-height
-          class="align-self-stretch"
-          style="height:100%"
-        >
-          <market name="A" :stocksData="{ q: 1, value: 22.1 }" />
+
+        <v-col>
+          <market name="B" :stocksData="{ q: 2, value: 32 }" />
         </v-col>
-        
       </v-row>
     </v-main>
   </v-app>
@@ -44,9 +63,10 @@
 <script>
 import _ from "lodash";
 import Market from "@/components/MarketWrapper";
-import ChartModule from "@/components/ChartModule.vue";
+
+import TransactionPrices from "@/components/TransactionPrices.vue";
 export default {
-  components: { Market, ChartModule },
+  components: { Market,TransactionPrices },
   data: () => ({
     cards: ["Today", "Yesterday"],
     innerList: _.range(1, 10),
