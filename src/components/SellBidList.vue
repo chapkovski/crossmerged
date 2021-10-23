@@ -1,51 +1,51 @@
 <template>
-       <v-col class="nopm" cols="4">
-        <v-card height="350px">
-          <v-app-bar class="flex-grow-0" dense>
-            Selling bids
-          </v-app-bar>
-          <v-card-text>
-            <v-list>
-              <v-list-item-group
-                v-model="selectedSellingBid"
-                active-class="border"
-                color="indigo"
+  <v-col style="height:100%">
+    <v-card class="d-flex flex-column" fill-height style="height:100%">
+      <v-app-bar class="flex-grow-0" dense>
+        Selling bids
+      </v-app-bar>
+      <v-card-text class="overflow-y-auto" style="margin-bottom:48px">
+        <v-list class="listouter1">
+          <v-list-item-group
+            v-model="selectedSellingBid"
+            active-class="border"
+            color="indigo"
+            class="listouter2"
+          >
+            <div id="inner">
+              <v-list-item
+                v-for="(item, i) in innerList"
+                :key="i"
+                :id="`li_${item}`"
+                dense
               >
-                <v-list-item
-                  v-for="(item, i) in innerList"
-                  :key="i"
-                  :id="`li_${item}`"
-                  dense
-                >
-                  <v-list-item-content>
-                    <v-list-item-title v-text="item"></v-list-item-title>
-                  </v-list-item-content>
-                </v-list-item>
-              </v-list-item-group>
-            </v-list>
-          </v-card-text>
+                <v-list-item-content>
+                  <v-list-item-title v-text="item"></v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </div>
+          </v-list-item-group>
+        </v-list>
+      </v-card-text>
 
-          <v-footer class="pa-2">
-            <v-btn color="blue" :disabled="selectedSellingBid === null"
-              >Buy</v-btn
-            >
-          </v-footer>
-        </v-card>
-      </v-col>
+      <v-footer class="bottom_footer">
+        <v-btn color="blue" :disabled="selectedSellingBid === null">Buy</v-btn>
+      </v-footer>
+    </v-card>
+  </v-col>
 </template>
 
 <script>
-import _ from 'lodash'
+import _ from "lodash";
 export default {
   components: {},
   name: "SellBidList",
 
   data() {
     return {
-      selectedSellingBid:null,
-      innerList:_.map(_.range(10), (i) => _.random(50, 120)),
+      selectedSellingBid: null,
+      innerList: _.map(_.range(100), (i) => _.random(50, 120)),
     };
   },
 };
 </script>
- 

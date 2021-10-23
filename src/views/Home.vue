@@ -14,29 +14,29 @@
           </v-list-item-action>
         </v-list-item>
       </v-sheet>
+      <v-spacer></v-spacer>
+      <v-btn>Transaction history</v-btn>
     </v-app-bar>
     <v-main>
-      <v-container class="py-8 px-6" fluid>
-        <v-row>
-          <v-col
-            class="d-flex flex-column  "
-            fill-height
-            style="
-    max-height: calc(100vh - 60px);
-    overflow: scroll;
-    justify-content: stretch;
-    align-items: stretch;
-"
-          >
-            <market name="A" :stocksData="{ q: 1, value: 22.1 }" />
-            <v-divider></v-divider>
-            <market name="B" :stocksData="{ q: 3, value: 12.9 }" />
-          </v-col>
-          <v-col>
-            <v-row> <chart-module></chart-module> </v-row
-          ></v-col>
-        </v-row>
-      </v-container>
+      <v-row fill-height class="d-flex align-stretch" style="height:100%">
+        <v-col
+       
+          fill-height
+          class="align-self-stretch"
+          style="height:100%"
+        >
+          <market name="A" :stocksData="{ q: 1, value: 22.1 }" />
+        </v-col>
+           <v-col
+       
+          fill-height
+          class="align-self-stretch"
+          style="height:100%"
+        >
+          <market name="A" :stocksData="{ q: 1, value: 22.1 }" />
+        </v-col>
+        
+      </v-row>
     </v-main>
   </v-app>
 </template>

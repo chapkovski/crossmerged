@@ -1,5 +1,5 @@
 <template>
-  <v-card :style="`{ overflow: auto; height: 450px; }`">
+  <v-card class="v-100" fill-height style="height:100%">
     <v-toolbar height="80"
       >Market {{ name }}.
       <v-sheet class="mx-2" outlined>
@@ -21,10 +21,9 @@
       <v-spacer></v-spacer>
     </v-toolbar>
 
-    <v-row>
-      <sell-bid-list></sell-bid-list>
+    <v-row style="height:calc(100vh - 120px)">
       <buy-bid-list></buy-bid-list>
-      <transaction-prices :marketName="name"></transaction-prices>
+      <sell-bid-list></sell-bid-list>
     </v-row>
   </v-card>
 </template>
@@ -51,24 +50,29 @@ export default {
 };
 </script>
 <style>
-html {
-  overflow: hidden !important;
-}
 
-.v-card {
-  display: flex !important;
-  flex-direction: column;
-}
-
-.v-card__text {
-  flex-grow: 1;
-  overflow: auto;
-}
 .small {
   font-size: 1rem;
 }
 .border {
   border: 2px dashed orange;
 }
-/* .nopm{ padding: 0px;} */
+.listouter1 {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.listouter2 {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column-reverse;
+  overflow-y: scroll;
+}
+.bottom_footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
 </style>

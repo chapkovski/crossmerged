@@ -1,6 +1,6 @@
 <template>
-  <v-col class="nopm" cols="4">
-    <v-card height="350px">
+  <v-col  cols="4">
+    <v-card >
       <v-app-bar class="flex-grow-0" dense>
         Transaction prices
       </v-app-bar>
