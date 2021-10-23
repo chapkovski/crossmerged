@@ -8,11 +8,26 @@
           </v-list-item-icon>
           <v-list-item-content>
             <v-list-item-title
-              v-text="`Total amount of money:`"
-            ></v-list-item-title>
+              
+            >Amount of money in <span class="font-weight-bold">Market A:</span>:</v-list-item-title>
           </v-list-item-content>
           <v-list-item-action>
             <v-btn>$123</v-btn>
+          </v-list-item-action>
+        </v-list-item>
+      </v-sheet>
+      <v-sheet outlined>
+        <v-list-item>
+          <v-list-item-icon>
+            <v-icon v-text="`mdi-bank`"></v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title
+              
+            >Amount of money in <span class="font-weight-bold">Market B:</span>:</v-list-item-title>
+          </v-list-item-content>
+          <v-list-item-action>
+            <v-btn>$345</v-btn>
           </v-list-item-action>
         </v-list-item>
       </v-sheet>
