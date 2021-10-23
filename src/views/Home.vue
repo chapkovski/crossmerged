@@ -7,53 +7,27 @@
             <v-icon v-text="`mdi-bank`"></v-icon>
           </v-list-item-icon>
           <v-list-item-content>
-            <v-list-item-title v-text="`Current account:`"></v-list-item-title>
-          </v-list-item-content>
-          <v-list-item-action>
-            <v-btn disabled>$123</v-btn>
-          </v-list-item-action>
-        </v-list-item>
-      </v-sheet>
-       <v-sheet outlined style='background:green'>
-        <v-list-item color="red">
-          <v-list-item-icon>
-            <v-icon v-text="`mdi-bank`"></v-icon>
-          </v-list-item-icon>
-        <v-list-item-content style="color:white;font-weight:bold">
             <v-list-item-title
-              
-              v-text="`Current price A:`"
+              v-text="`Total amount of money:`"
             ></v-list-item-title>
           </v-list-item-content>
           <v-list-item-action>
-            <v-btn>$12</v-btn>
+            <v-btn>$123</v-btn>
           </v-list-item-action>
         </v-list-item>
       </v-sheet>
-      <v-sheet outlined style='background:red'>
-        <v-list-item color="red">
-          <v-list-item-icon>
-            <v-icon v-text="`mdi-bank`"></v-icon>
-          </v-list-item-icon>
-          <v-list-item-content style="color:white;font-weight:bold">
-            <v-list-item-title v-text="`Current price B:`"></v-list-item-title>
-          </v-list-item-content>
-          <v-list-item-action>
-            <v-btn>$12</v-btn>
-          </v-list-item-action>
-        </v-list-item>
-      </v-sheet>
+
       <v-spacer></v-spacer>
-     <transaction-prices></transaction-prices>
+      <transaction-prices></transaction-prices>
     </v-app-bar>
     <v-main>
       <v-row fill-height class="d-flex align-stretch" style="height:100%">
-        <v-col>
-          <market name="A" :stocksData="{ q: 1, value: 22.1 }" />
+        <v-col cols=6>
+          <market name="A" :stocksData="{ q: 1, price: 22.1 }" />
+         
         </v-col>
-
-        <v-col>
-          <market name="B" :stocksData="{ q: 2, value: 32 }" />
+        <v-col cols=6>
+           <market name="B" :stocksData="{ q: 1, price: 22.1 }" />
         </v-col>
       </v-row>
     </v-main>
@@ -66,7 +40,7 @@ import Market from "@/components/MarketWrapper";
 
 import TransactionPrices from "@/components/TransactionPrices.vue";
 export default {
-  components: { Market,TransactionPrices },
+  components: { Market, TransactionPrices },
   data: () => ({
     cards: ["Today", "Yesterday"],
     innerList: _.range(1, 10),

@@ -33,7 +33,7 @@
       </v-card-text>
 
       <v-footer class="bottom_footer">
-        <v-btn color="red" :disabled="selectedSellingBid === null">Sell</v-btn>
+        <v-btn color="red" :disabled="emptyBid">{{btntext}}</v-btn>
       </v-footer>
     </v-card>
   </v-col>
@@ -44,12 +44,27 @@ import _ from "lodash";
 export default {
   components: {},
   name: "BuyBidList",
-
+ props: ["name"],
   data() {
     return {
       selectedSellingBid: null,
       innerList: _.map(_.range(12), (i) => _.random(50, 120)),
     };
+  },
+    computed: {
+      emptyBid(){
+        return _.isNil(this.selectedSellingBid)
+      },
+    selectedBidValue() {
+      return this.innerList[this.selectedSellingBid];
+    },
+    btntext() {
+      if (this.emptyBid) {
+        return "Sell";
+      } else {
+        return `Sell 1 ${this.name} for ${this.selectedBidValue}`;
+      }
+    },
   },
 };
 </script>

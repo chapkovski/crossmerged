@@ -1,10 +1,6 @@
 <template>
   <v-col style="height:100%" class="mx-3 d-flex flex-column my-1">
-    <v-card
-      class="d-flex flex-column buysellcard"
-      fill-height
-    
-    >
+    <v-card class="d-flex flex-column buysellcard" fill-height>
       <v-app-bar class="flex-grow-0" dense>
         Selling bids
       </v-app-bar>
@@ -33,7 +29,9 @@
       </v-card-text>
 
       <v-footer class="bottom_footer">
-        <v-btn color="green" :disabled="selectedSellingBid === null">Buy</v-btn>
+        <v-btn color="green" :disabled="emptyBid">{{
+          btntext
+        }}</v-btn>
       </v-footer>
     </v-card>
   </v-col>
@@ -43,13 +41,28 @@
 import _ from "lodash";
 export default {
   components: {},
-  
+  props: ["name"],
 
   data() {
     return {
       selectedSellingBid: null,
       innerList: _.map(_.range(12), (i) => _.random(50, 120)),
     };
+  },
+  computed: {
+    emptyBid(){
+        return _.isNil(this.selectedSellingBid)
+      },
+    selectedBidValue() {
+      return this.innerList[this.selectedSellingBid];
+    },
+    btntext() {
+      if (this.emptyBid) {
+        return "Buy";
+      } else {
+        return `Buy 1 ${this.name} for ${this.selectedBidValue}`;
+      }
+    },
   },
 };
 </script>
