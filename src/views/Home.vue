@@ -8,37 +8,19 @@
           </v-list-item-icon>
           <v-list-item-content>
             <v-list-item-title
-              >Cash available in
+              >Total cash available in Markets A and B:
               <span class="font-weight-bold">Market A:</span
               ></v-list-item-title
             >
           </v-list-item-content>
           <v-list-item-action>
             <div class="pa-2 primary   white--text text-no-wrap rounded-pill">
-              $123
+              $789
             </div>
           </v-list-item-action>
         </v-list-item>
       </v-sheet>
-      <v-sheet outlined>
-        <v-list-item>
-          <v-list-item-icon>
-            <v-icon v-text="`mdi-bank`"></v-icon>
-          </v-list-item-icon>
-          <v-list-item-content>
-            <v-list-item-title
-              >Cash available in
-              <span class="font-weight-bold">Market B:</span
-              ></v-list-item-title
-            >
-          </v-list-item-content>
-          <v-list-item-action>
-            <div class="pa-2 primary   white--text text-no-wrap rounded-pill">
-              $456
-            </div>
-          </v-list-item-action>
-        </v-list-item>
-      </v-sheet>
+      
 
       <v-spacer></v-spacer>
       <transaction-prices></transaction-prices>
