@@ -2,13 +2,13 @@
   <v-card class="v-100" fill-height style="height:90vh">
     <v-toolbar height="80">
       <v-sheet
-        class="mx-2 d-flex rounded-lg font-weight-bold "
-        elevation="3"
+        class="mx-1 d-flex rounded-l-xl font-weight-bold  "
+        outlined
        
       >
        <v-list-item>Market {{ name }}.</v-list-item>
       </v-sheet>
-      <v-sheet class="mx-2 d-flex rounded-lg" outlined>
+      <v-sheet class="mx-0 d-flex " outlined>
         <v-list-item>
           <v-list-item-content> </v-list-item-content>
 
@@ -18,7 +18,7 @@
           {{ stocksData.q }}
         </v-list-item-action>
       </v-sheet>
-      <v-sheet outlined class="mx-2 rounded-lg">
+      <v-sheet outlined class="mx-1">
         <v-list-item>
           <v-list-item-content>
             <v-list-item-title>Price {{ name }}: </v-list-item-title>
@@ -27,6 +27,13 @@
             {{ stocksData.price }}
           </v-list-item-action>
         </v-list-item>
+      </v-sheet>
+      <v-sheet
+        class="mx-0  mr-2 d-flex rounded-r-xl   "
+        outlined
+       
+      >
+       <v-list-item>Total value: <span class="font-weight-bold">${{stocksData.totalV}}</span></v-list-item>
       </v-sheet>
       <v-spacer></v-spacer>
       <v-dialog v-model="dialog" width="500">
