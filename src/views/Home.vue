@@ -9,8 +9,7 @@
           <v-list-item-content>
             <v-list-item-title
               >Total cash available in Markets A and B:
-              <span class="font-weight-bold">Market A:</span
-              ></v-list-item-title
+              </v-list-item-title
             >
           </v-list-item-content>
           <v-list-item-action>
