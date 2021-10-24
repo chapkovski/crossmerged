@@ -1,45 +1,72 @@
 <template>
   <v-app id="inspire">
     <v-app-bar app height="70">
-      <v-sheet outlined>
-        <v-list-item>
-          <v-list-item-icon>
-            <v-icon v-text="`mdi-bank`"></v-icon>
-          </v-list-item-icon>
-          <v-list-item-content>
-            <v-list-item-title
-              >Cash available in
-              <span class="font-weight-bold">Market A:</span
-              ></v-list-item-title
+      <v-sheet elevation="3" class="d-flex pa-3 align-center rounded-sm" height="64px">
+        <div class="font-weight-bold mx-1 mr-3">Market A value:</div>
+        <v-sheet outlined class="d-flex align-center rounded-l-xl pa-2 ">
+          <div class="d-flex align-center  ">
+            In assets:
+            <div
+              class="ml-1 pa-2 primary   white--text text-no-wrap rounded-pill"
             >
-          </v-list-item-content>
-          <v-list-item-action>
-            <div class="pa-2 primary   white--text text-no-wrap rounded-pill">
+              $44.2
+            </div>
+          </div>
+        </v-sheet>
+        <v-sheet outlined class="d-flex align-center ml-1 pa-2">
+          <div class="d-flex align-center  ">
+            In cash:
+            <div
+              class="ml-1 pa-2 primary   white--text text-no-wrap rounded-pill"
+            >
               $123
             </div>
-          </v-list-item-action>
-        </v-list-item>
-      </v-sheet>
-      <v-sheet outlined>
-        <v-list-item>
-          <v-list-item-icon>
-            <v-icon v-text="`mdi-bank`"></v-icon>
-          </v-list-item-icon>
-          <v-list-item-content>
-            <v-list-item-title
-              >Cash available in
-              <span class="font-weight-bold">Market B:</span
-              ></v-list-item-title
+          </div>
+        </v-sheet>
+         <v-sheet outlined class="d-flex align-center ml-1 pa-2 rounded-r-xl">
+          <div class="d-flex align-center  font-weight-bold ">
+            Total:
+            <div
+              class="ml-1 pa-2 red   white--text text-no-wrap rounded-pill"
             >
-          </v-list-item-content>
-          <v-list-item-action>
-            <div class="pa-2 primary   white--text text-no-wrap rounded-pill">
+              $167.2
+            </div>
+          </div>
+        </v-sheet>
+      </v-sheet>
+    <v-sheet elevation="3" class="d-flex pa-3 align-center rounded-sm" height="64px">
+        <div class="font-weight-bold mx-1 mr-3">Market B value:</div>
+        <v-sheet outlined class="d-flex align-center rounded-l-xl pa-2 ">
+          <div class="d-flex align-center  ">
+            In assets:
+            <div
+              class="ml-1 pa-2 primary   white--text text-no-wrap rounded-pill"
+            >
+              $21.0
+            </div>
+          </div>
+        </v-sheet>
+        <v-sheet outlined class="d-flex align-center ml-1 pa-2">
+          <div class="d-flex align-center  ">
+            In cash:
+            <div
+              class="ml-1 pa-2 primary   white--text text-no-wrap rounded-pill"
+            >
               $456
             </div>
-          </v-list-item-action>
-        </v-list-item>
+          </div>
+        </v-sheet>
+         <v-sheet outlined class="d-flex align-center ml-1 pa-2 rounded-r-xl">
+          <div class="d-flex align-center  font-weight-bold ">
+            Total:
+            <div
+              class="ml-1 pa-2 red   white--text text-no-wrap rounded-pill"
+            >
+              $477.0
+            </div>
+          </div>
+        </v-sheet>
       </v-sheet>
-
       <v-spacer></v-spacer>
       <transaction-prices></transaction-prices>
     </v-app-bar>

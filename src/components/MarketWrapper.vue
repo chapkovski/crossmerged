@@ -18,23 +18,17 @@
           {{ stocksData.q }}
         </v-list-item-action>
       </v-sheet>
-      <v-sheet outlined class="mx-1">
+      <v-sheet outlined class="mx-1 rounded-r-xl ">
         <v-list-item>
           <v-list-item-content>
-            <v-list-item-title>Price {{ name }}: </v-list-item-title>
+            <v-list-item-title>Current price {{ name }}: </v-list-item-title>
           </v-list-item-content>
           <v-list-item-action class="font-weight-bold ">
             {{ stocksData.price }}
           </v-list-item-action>
         </v-list-item>
       </v-sheet>
-      <v-sheet
-        class="mx-0  mr-2 d-flex rounded-r-xl   "
-        outlined
-       
-      >
-       <v-list-item>Total value: <span class="font-weight-bold">${{stocksData.totalV}}</span></v-list-item>
-      </v-sheet>
+      
       <v-spacer></v-spacer>
       <v-dialog v-model="dialog" width="500">
         <template v-slot:activator="{ on, attrs }">
