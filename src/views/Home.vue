@@ -1,6 +1,6 @@
 <template>
   <v-app id="inspire">
-    <v-app-bar app>
+    <v-app-bar app height="70">
       <v-sheet outlined>
         <v-list-item>
           <v-list-item-icon>
@@ -8,11 +8,15 @@
           </v-list-item-icon>
           <v-list-item-content>
             <v-list-item-title
-              
-            >Amount of money in <span class="font-weight-bold">Market A:</span>:</v-list-item-title>
+              >Cash available in
+              <span class="font-weight-bold">Market A:</span
+              ></v-list-item-title
+            >
           </v-list-item-content>
           <v-list-item-action>
-            <v-btn>$123</v-btn>
+            <div class="pa-2 primary   white--text text-no-wrap rounded-pill">
+              $123
+            </div>
           </v-list-item-action>
         </v-list-item>
       </v-sheet>
@@ -23,11 +27,15 @@
           </v-list-item-icon>
           <v-list-item-content>
             <v-list-item-title
-              
-            >Amount of money in <span class="font-weight-bold">Market B:</span>:</v-list-item-title>
+              >Cash available in
+              <span class="font-weight-bold">Market B:</span
+              ></v-list-item-title
+            >
           </v-list-item-content>
           <v-list-item-action>
-            <v-btn>$345</v-btn>
+            <div class="pa-2 primary   white--text text-no-wrap rounded-pill">
+              $456
+            </div>
           </v-list-item-action>
         </v-list-item>
       </v-sheet>
@@ -37,12 +45,11 @@
     </v-app-bar>
     <v-main>
       <v-row fill-height class="d-flex align-stretch" style="height:100%">
-        <v-col cols=6>
-          <market name="A" :stocksData="{ q: 1, price: 22.1 }" />
-         
+        <v-col cols="6">
+          <market name="A" :stocksData="{ q: 2, price: 22.1, totalV: 44.2 }" />
         </v-col>
-        <v-col cols=6>
-           <market name="B" :stocksData="{ q: 1, price: 22.1 }" />
+        <v-col cols="6">
+          <market name="B" :stocksData="{ q: 10, price: 2.1, totalV: 21.0 }" />
         </v-col>
       </v-row>
     </v-main>
