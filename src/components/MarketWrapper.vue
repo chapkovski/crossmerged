@@ -12,19 +12,30 @@
         <v-list-item>
           <v-list-item-content> </v-list-item-content>
 
-          Number of shares:
+          N. of shares:
         </v-list-item>
         <v-list-item-action class="font-weight-bold">
           {{ stocksData.q }}
         </v-list-item-action>
       </v-sheet>
-      <v-sheet outlined class="mx-1 rounded-r-xl ">
+      <v-sheet outlined class="ml-1 ">
         <v-list-item>
           <v-list-item-content>
-            <v-list-item-title>Current price {{ name }}: </v-list-item-title>
+            <v-list-item-title>Price: </v-list-item-title>
           </v-list-item-content>
           <v-list-item-action class="font-weight-bold ">
             {{ stocksData.price }}
+          </v-list-item-action>
+        </v-list-item>
+      </v-sheet>
+      
+      <v-sheet outlined class="mx-1 rounded-r-xl ">
+        <v-list-item>
+          <v-list-item-content>
+            <v-list-item-title>Total asset value: </v-list-item-title>
+          </v-list-item-content>
+          <v-list-item-action class="font-weight-bold ">
+            {{ stocksData.totalV }}
           </v-list-item-action>
         </v-list-item>
       </v-sheet>
